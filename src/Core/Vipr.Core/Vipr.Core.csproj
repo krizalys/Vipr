@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,11 +8,17 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Vipr.Core</RootNamespace>
     <AssemblyName>Vipr.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <BuildPackage>true</BuildPackage>
+    <Deterministic>false</Deterministic>
+    <AssemblyTitle>ODataReader</AssemblyTitle>
+    <Product>ODataReader</Product>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <FileVersion>1.0.*</FileVersion>
+    <Company>Microsoft</Company>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,53 +44,8 @@
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeModel\OdcmCallingConvention.cs" />
-    <Compile Include="CodeModel\OdcmClassKind.cs" />
-    <Compile Include="CodeModel\OdcmAllowedVerbs.cs" />
-    <Compile Include="CodeModel\OdcmComplexClass.cs" />
-    <Compile Include="CodeModel\OdcmEntityClass.cs" />
-    <Compile Include="CodeModel\OdcmEntitySet.cs" />
-    <Compile Include="CodeModel\OdcmMediaClass.cs" />
-    <Compile Include="CodeModel\OdcmProjection.cs" />
-    <Compile Include="CodeModel\OdcmServiceClass.cs" />
-    <Compile Include="CodeModel\OdcmSingleton.cs" />
-    <Compile Include="CodeModel\OdcmTypeDefinition.cs" />
-    <Compile Include="CodeModel\OdcmVocabularyAnnotation.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\INameMapper.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\OdcmCapability.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\OdcmBooleanCapability.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\OdcmEnumCapability.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\OdcmCollectionCapability.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\OdcmStringCapability.cs" />
-    <Compile Include="CodeModel\Vocabularies\Capabilities\TermNames.cs" />
-    <Compile Include="RelativeFile.cs" />
-    <Compile Include="CodeModel\Vocabularies\Restrictions\DeleteRestrictionsType.cs" />
-    <Compile Include="CodeModel\Vocabularies\Restrictions\ExpandRestrictionsType.cs" />
-    <Compile Include="CodeModel\Vocabularies\Restrictions\InsertRestrictionsType.cs" />
-    <Compile Include="CodeModel\Vocabularies\Restrictions\UpdateRestrictionsType.cs" />
-    <Compile Include="IConfigurable.cs" />
-    <Compile Include="IConfigurationProvider.cs" />
-    <Compile Include="IOdcmReader.cs" />
-    <Compile Include="CodeModel\OdcmClass.cs" />
-    <Compile Include="CodeModel\OdcmEnum.cs" />
-    <Compile Include="CodeModel\OdcmEnumMember.cs" />
-    <Compile Include="CodeModel\OdcmMethod.cs" />
-    <Compile Include="CodeModel\OdcmModel.cs" />
-    <Compile Include="CodeModel\OdcmNamespace.cs" />
-    <Compile Include="CodeModel\OdcmObject.cs" />
-    <Compile Include="CodeModel\OdcmParameter.cs" />
-    <Compile Include="CodeModel\OdcmPrimitiveType.cs" />
-    <Compile Include="CodeModel\OdcmProperty.cs" />
-    <Compile Include="CodeModel\OdcmType.cs" />
-    <Compile Include="IOdcmWriter.cs" />
-    <Compile Include="OdcmExtensions.cs" />
-    <Compile Include="TextFile.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Vipr.Core.nuspec" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -93,7 +53,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
